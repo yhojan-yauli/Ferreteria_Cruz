@@ -1,0 +1,284 @@
+package com.ferreteria.vista;
+
+import com.ferreteria.modelo.Usuario;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import javax.swing.JFrame;
+import raven.menu.MenuEvent; 
+
+public class MainFrameFerreteria extends javax.swing.JFrame {
+
+    private Usuario usuarioLogueado;
+
+    /**
+     * Constructor Principal
+     */
+    public MainFrameFerreteria(Usuario usuario) {
+        // 1. Guardamos la sesión
+        this.usuarioLogueado = usuario;
+
+        // 2. Inicializamos componentes visuales de NetBeans
+        initComponents();
+        
+        // 3. Título dinámico
+        this.setTitle("Sistema Ferretería - Usuario: " + usuario.getNombreCompleto());
+
+        // 4. Configuración del contenedor 'body' (CRÍTICO PARA QUE CAMBIEN LOS PANELES)
+        body.setLayout(new BorderLayout());
+
+        // 5. Configuración básica de la ventana
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar
+        this.setLocationRelativeTo(null); // Centrar
+
+        // 6. Configurar los eventos del menú lateral
+        menu1.setEvent(new MenuEvent() {
+            @Override
+            public void selected(int index, int subIndex) {
+                System.out.println("-> Cambiando a panel índice: " + index);
+                // Llamamos al enrutador para que decida qué panel mostrar
+                showForm(createForm(index, subIndex));
+            }
+        });
+
+        // 7. Cargar la primera pantalla por defecto.
+        System.out.println("-> Cargando Dashboard inicial...");
+        showForm(new PanelDashboard());
+    }
+
+    // ==================================================================================
+    // EL "ENRUTADOR" PRINCIPAL CON SEGURIDAD DE ROLES
+    // ==================================================================================
+private Component createForm(int index, int subIndex) {
+    int idRol = (this.usuarioLogueado != null) ? this.usuarioLogueado.getIdRol() : 2;
+
+    switch (index) {
+        case 0:
+        case 1: // Inicio
+            return new PanelDashboard();
+
+        case 2: // Ventas
+            return new PanelVentas(this.usuarioLogueado);
+
+        case 3: // Catálogo
+            return new PanelListadoProductos1();
+
+        case 4: // Inventario
+            if (idRol == 1) return new PanelInventario1();
+            return accesoDenegado();
+
+        case 5: // ADMINISTRACIÓN (Antes era índice 6)
+            if (idRol == 1) {
+                if (subIndex == 1) return new PanelUsuario();
+                if (subIndex == 2) return new PanelClientes();
+                if (subIndex == 3) return new PanelCategorias();
+                if (subIndex == 4) return new PanelReportes();
+                return new javax.swing.JPanel();
+            }
+            return accesoDenegado();
+
+        case 6: // Salir (Antes era índice 7)
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Salir", javax.swing.JOptionPane.YES_NO_OPTION);
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) System.exit(0);
+            return null;
+
+        default:
+            return new PanelDashboard();
+    }
+}
+
+// Método auxiliar para no repetir el mensaje de error
+private Component accesoDenegado() {
+    javax.swing.JOptionPane.showMessageDialog(this, "Acceso Denegado: Solo Administradores.", "Seguridad", javax.swing.JOptionPane.WARNING_MESSAGE);
+    return new PanelDashboard();
+}
+
+
+    // ==================================================================================
+    // EL MÉTODO QUE REFRESCA LA PANTALLA
+    // ==================================================================================
+   private void showForm(Component com) {
+        try {
+            if (com == null) {
+                System.out.println("--- DEBUG: El panel solicitado es nulo. ---");
+                return; 
+            }
+            
+            System.out.println("--- DEBUG: Limpiando pantalla actual... ---");
+            body.removeAll();
+            
+            System.out.println("--- DEBUG: Insertando el nuevo panel... ---");
+            // Forzamos el Layout de nuevo por si NetBeans lo bloquea
+            body.setLayout(new java.awt.BorderLayout()); 
+            body.add(com, java.awt.BorderLayout.CENTER);
+            
+            System.out.println("--- DEBUG: Forzando a redibujar la pantalla... ---");
+            body.revalidate();
+            body.repaint();
+            
+            System.out.println("--- DEBUG: ¡Panel cargado exitosamente! ---");
+            
+        } catch (Exception e) {
+            System.err.println("!!! ERROR FATAL AL MOSTRAR EL PANEL !!!");
+            System.err.println("Causa: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        polygonCorner1 = new raven.scroll.win11.PolygonCorner();
+        polygonCorner2 = new raven.scroll.win11.PolygonCorner();
+        jMenu1 = new javax.swing.JMenu();
+        menu2 = new raven.menu.Menu();
+        jPanel1 = new javax.swing.JPanel();
+        menupnl = new raven.scroll.win11.ScrollPaneWin11();
+        menu1 = new raven.menu.Menu();
+        jPanel4 = new javax.swing.JPanel();
+        btnMenu1 = new javax.swing.JButton();
+        body = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        jMenu1.setText("jMenu1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        menupnl.setBorder(null);
+        menupnl.setViewportView(menu1);
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 51));
+
+        btnMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu-abierto.png"))); // NOI18N
+        btnMenu1.setBorder(null);
+        btnMenu1.setContentAreaFilled(false);
+        btnMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenu1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(btnMenu1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(btnMenu1)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        body.setBackground(new java.awt.Color(255, 255, 255));
+        body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        body.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 756, 37, -1));
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(menupnl, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menupnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(body, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
+        // TODO add your handling code here:
+           if (menupnl.isVisible()) {
+        menupnl.setVisible(false);
+    } else {
+        // Si el menú está oculto, lo mostramos y el body vuelve a su tamaño normal
+        menupnl.setVisible(true);
+    }
+
+    // Forzar que el contenedor vuelva a calcular tamaños
+    jPanel1.revalidate();
+    jPanel1.repaint();
+    }//GEN-LAST:event_btnMenu1ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+  public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(MainFrameFerreteria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Usuario usuarioPrueba = new Usuario();
+                usuarioPrueba.setIdUsuario(1); 
+                usuarioPrueba.setNombreCompleto("Usuario de Prueba (Admin)");
+                usuarioPrueba.setRol("Administrador"); // <--- CAMBIA A "Vendedor" PARA PROBAR EL BLOQUEO
+                
+                new MainFrameFerreteria(usuarioPrueba).setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel body;
+    private javax.swing.JButton btnMenu1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
+    private raven.menu.Menu menu1;
+    private raven.menu.Menu menu2;
+    private raven.scroll.win11.ScrollPaneWin11 menupnl;
+    private raven.scroll.win11.PolygonCorner polygonCorner1;
+    private raven.scroll.win11.PolygonCorner polygonCorner2;
+    // End of variables declaration//GEN-END:variables
+}

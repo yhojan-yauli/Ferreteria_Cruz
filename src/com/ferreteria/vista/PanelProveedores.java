@@ -1,0 +1,363 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package com.ferreteria.vista;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author USUARIO
+ */
+public class PanelProveedores extends javax.swing.JPanel {
+ public PanelProveedores() {
+        initComponents();
+    }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        lblTitulo4 = new javax.swing.JLabel();
+        txtBuscarCurso = new javax.swing.JTextField();
+        btnNuevo = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnBuscarCurso = new javax.swing.JButton();
+        panelCurso = new javax.swing.JPanel();
+        lblTitulo9 = new javax.swing.JLabel();
+        lblCiclo = new javax.swing.JLabel();
+        lblCréditos = new javax.swing.JLabel();
+        txtCodCurso = new javax.swing.JTextField();
+        lblHoras = new javax.swing.JLabel();
+        txtAsignatura = new javax.swing.JTextField();
+        txtCiclo = new javax.swing.JTextField();
+        txtCreditos = new javax.swing.JTextField();
+        txtHoras = new javax.swing.JTextField();
+        lblCodCurso = new javax.swing.JLabel();
+        lblAsignatura = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnGuardar.setBackground(new java.awt.Color(243, 156, 18));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        jPanel5.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel5.setForeground(new java.awt.Color(153, 204, 0));
+        jPanel5.setPreferredSize(new java.awt.Dimension(880, 70));
+
+        lblTitulo4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitulo4.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo4.setText("MANTENIMIENTO DE CURSO");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(lblTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addGap(271, 271, 271))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(24, 24, 24))
+        );
+
+        txtBuscarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarCursoActionPerformed(evt);
+            }
+        });
+
+        btnNuevo.setBackground(new java.awt.Color(243, 156, 18));
+        btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setMaximumSize(new java.awt.Dimension(80, 23));
+        btnNuevo.setMinimumSize(new java.awt.Dimension(80, 23));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnModificar.setBackground(new java.awt.Color(243, 156, 18));
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(231, 28, 36));
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCurso.setBackground(new java.awt.Color(41, 128, 185));
+        btnBuscarCurso.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarCurso.setText("🔍 Buscar");
+        btnBuscarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCursoActionPerformed(evt);
+            }
+        });
+
+        panelCurso.setBackground(new java.awt.Color(248, 249, 250));
+        panelCurso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(41, 128, 185), 1, true));
+        panelCurso.setToolTipText("");
+        panelCurso.setName(""); // NOI18N
+        panelCurso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitulo9.setBackground(new java.awt.Color(25, 42, 86));
+        lblTitulo9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitulo9.setForeground(new java.awt.Color(25, 42, 86));
+        lblTitulo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo9.setText("DATOS DEL CURSO:");
+        panelCurso.add(lblTitulo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 1, -1, -1));
+
+        lblCiclo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCiclo.setText("Ciclo");
+        panelCurso.add(lblCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 132, 150, 32));
+
+        lblCréditos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCréditos.setText("Créditos");
+        panelCurso.add(lblCréditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 183, 150, 32));
+
+        txtCodCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodCursoActionPerformed(evt);
+            }
+        });
+        panelCurso.add(txtCodCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 234, 32));
+
+        lblHoras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblHoras.setText("Horas");
+        panelCurso.add(lblHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 233, 150, 32));
+
+        txtAsignatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAsignaturaActionPerformed(evt);
+            }
+        });
+        panelCurso.add(txtAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 234, 32));
+
+        txtCiclo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCiclotxtApellidosActionPerformed(evt);
+            }
+        });
+        panelCurso.add(txtCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 234, 32));
+
+        txtCreditos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreditostxtDniActionPerformed(evt);
+            }
+        });
+        panelCurso.add(txtCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 234, 32));
+        panelCurso.add(txtHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 234, 32));
+
+        lblCodCurso.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCodCurso.setText("Codigo:");
+        panelCurso.add(lblCodCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 27, 150, 32));
+
+        lblAsignatura.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAsignatura.setText("Asignatura");
+        panelCurso.add(lblAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 32));
+
+        jTable2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Asignatura", "Ciclo", "Créditos", "Horas"
+            }
+        ));
+        jTable2.setShowHorizontalLines(true);
+        jTable2.setShowVerticalLines(true);
+        jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTable2FocusGained(evt);
+            }
+        });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnBuscarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscarCurso)
+                            .addComponent(txtBuscarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(panelCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(32, 32, 32))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                        .addGap(19, 19, 19))))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+ 
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtBuscarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarCursoActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+   
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+ 
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnBuscarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCursoActionPerformed
+
+    }//GEN-LAST:event_btnBuscarCursoActionPerformed
+
+    private void txtAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAsignaturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAsignaturaActionPerformed
+
+    private void txtCiclotxtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiclotxtApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCiclotxtApellidosActionPerformed
+
+    private void txtCreditostxtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreditostxtDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCreditostxtDniActionPerformed
+
+    private void jTable2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2FocusGained
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+     
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+     
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtCodCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodCursoActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarCurso;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel lblAsignatura;
+    private javax.swing.JLabel lblCiclo;
+    private javax.swing.JLabel lblCodCurso;
+    private javax.swing.JLabel lblCréditos;
+    private javax.swing.JLabel lblHoras;
+    private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTitulo9;
+    private javax.swing.JPanel panelCurso;
+    private javax.swing.JTextField txtAsignatura;
+    private javax.swing.JTextField txtBuscarCurso;
+    private javax.swing.JTextField txtCiclo;
+    private javax.swing.JTextField txtCodCurso;
+    private javax.swing.JTextField txtCreditos;
+    private javax.swing.JTextField txtHoras;
+    // End of variables declaration//GEN-END:variables
+}
